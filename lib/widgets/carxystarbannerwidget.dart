@@ -8,7 +8,7 @@ class CrazyStarsBanner extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+        margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         decoration: BoxDecoration(
           
           gradient: const LinearGradient(
@@ -71,19 +71,17 @@ class CrazyStarsBanner extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 5),
-
-                  // Progress Bar
                   Container(
                     width: double.infinity,
                     height: 6,
                     decoration: BoxDecoration(
-                      color: const Color(0xFF388E3C), // Darker green for the bar's background
+                      color: const Color(0xFF388E3C), 
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Container(
-                        width: 10, // Simulated progress
+                        width: 10, 
                         height: 6,
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -93,8 +91,6 @@ class CrazyStarsBanner extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 5),
-
-                  // "Join CRAZY CUB, an exclusive loyalty and reward..." text
                   const Text(
                     'Join CRAZY CUB, an exclusive loyalty and reward program.',
                     style: TextStyle(
@@ -108,8 +104,6 @@ class CrazyStarsBanner extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-
-            // Right side: Arrow icon
             const Icon(
               Icons.arrow_forward_ios,
               color: Colors.white,
