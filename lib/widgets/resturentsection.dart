@@ -1,14 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:shahzad/model/restaurant_model.dart';
+
+
 
 class RestaurantSection extends StatelessWidget {
   final String title;
   final bool viewAll;
 
-  const RestaurantSection({
-    super.key,
-    required this.title,
-    this.viewAll = false,
-  });
+  RestaurantSection({super.key, required this.title, this.viewAll = false});
+
+  final List<RestaurantModel> dummyRestaurants = [
+    RestaurantModel(
+      name: 'Shahjaha Restaurant',
+      rating: '5.4',
+      reviewCount: '(11+ ratings)',
+      deliveryTime: 'N/A',
+      imageUrl: 'https://res.cloudinary.com/dhl8hhlsx/image/upload/v1724745953/Restaurants/yz7zax3uaak33eg9rpid.jpg',
+    ),
+    RestaurantModel(
+      name: 'Food Point',
+      rating: '4.2',
+      reviewCount: '(25+ ratings)',
+      deliveryTime: '20 min',
+      imageUrl: 'https://res.cloudinary.com/dhl8hhlsx/image/upload/v1724745953/Restaurants/rvovniy3bmjyzsburlp5.jpg',
+    ),
+    RestaurantModel(
+      name: 'Pizza Town',
+      rating: '4.0',
+      reviewCount: '(30+ ratings)',
+      deliveryTime: '25 min',
+      imageUrl: 'https://res.cloudinary.com/dhl8hhlsx/image/upload/v1724745956/Restaurants/tyoovyhkhrst91uznu5d.jpg',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +40,6 @@ class RestaurantSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Row for "Restaurant near you" title and "View all ->"
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -26,32 +48,30 @@ class RestaurantSection extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black, // Title color is black
+                  color: Colors.black,
                 ),
               ),
               if (viewAll)
                 TextButton(
-                  onPressed: () {
-                    // Implement navigation to view all restaurants
-                  },
+                  onPressed: () {},
                   style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero, // Remove default text button padding
-                    minimumSize: Size.zero, // Remove default minimum size
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap, // Shrink tap area
+                    padding: EdgeInsets.zero,
+                    minimumSize: Size.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
                   child: const Row(
                     children: [
                       Text(
                         'View all',
                         style: TextStyle(
-                          color: Color(0xFF67B043), // Specific green color for View all
-                          fontSize: 14, // Adjusted font size
+                          color: Color(0xFF67B043),
+                          fontSize: 14,
                         ),
                       ),
-                      SizedBox(width: 4), // Small space between text and arrow
+                      SizedBox(width: 4),
                       Icon(
                         Icons.arrow_forward,
-                        color: Color(0xFF67B043), // Specific green color for arrow
+                        color: Color(0xFF67B043),
                         size: 16,
                       ),
                     ],
@@ -59,44 +79,20 @@ class RestaurantSection extends StatelessWidget {
                 ),
             ],
           ),
-          const SizedBox(height: 16), // Space between title row and res
-
-          // Horizontal List of Restaurant Cards
+          const SizedBox(height: 16),
           SizedBox(
-            height: 230, // Adjusted height to accommodate the card content
+            height: 230,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 5, // Example: showing 5 restaurants
+              itemCount: dummyRestaurants.length,
               itemBuilder: (context, index) {
-                // Dummy data to replicate the restaurants in the image
-                String restaurantName;
-                String rating;
-                String reviewCount;
-                String deliveryTime;
-                String imageUrl;
-
-                if (index == 0) {
-                  restaurantName = 'Shahjaha Resturent';
-                  rating = '5.45';
-                  reviewCount = '(11+ ratings)';
-                  deliveryTime = 'N/A';
-                  // Use a specific image for KFC
-                  imageUrl = 'https://res.cloudinary.com/dhl8hhlsx/image/upload/v1724745953/Restaurants/yz7zax3uaak33eg9rpid.jpg'; // Example KFC image
-                } else {
-                  restaurantName = 'Restaurant ${index + 1}';
-                  rating = '4.${(index + 1) * 2}';
-                  reviewCount = '(${index * 5}+ ratings)';
-                  deliveryTime = '${15 + index * 5} min';
-                  // Use a generic image for other restaurants
-                  imageUrl = 'https://res.cloudinary.com/dhl8hhlsx/image/upload/v1724745953/Restaurants/rvovniy3bmjyzsburlp5.jpg'; // Generic restaurant image
-                }
-
+                final restaurant = dummyRestaurants[index];
                 return Container(
                   width: 280,
-                  margin: const EdgeInsets.only(right: 16), 
+                  margin: const EdgeInsets.only(right: 16),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(15), 
+                    borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.1),
@@ -109,60 +105,56 @@ class RestaurantSection extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                 
                       ClipRRect(
                         borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(15), 
+                          top: Radius.circular(15),
                         ),
                         child: Image.network(
-                          imageUrl,
+                          restaurant.imageUrl,
                           height: 150,
-                          width: double.infinity, 
+                          width: double.infinity,
                           fit: BoxFit.cover,
                         ),
                       ),
-                     
                       Padding(
-                        padding: const EdgeInsets.all(12.0), 
+                        padding: const EdgeInsets.all(12.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Restaurant Name
                             Text(
-                              restaurantName,
+                              restaurant.name,
                               style: const TextStyle(
                                 fontSize: 16,
-                                fontWeight: FontWeight.bold, 
+                                fontWeight: FontWeight.bold,
                                 color: Colors.black,
                               ),
-                              maxLines: 1, 
-                              overflow: TextOverflow.ellipsis, 
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            const SizedBox(height: 4), 
-                     
+                            const SizedBox(height: 4),
                             Row(
                               children: [
-                                const Icon(Icons.star, color: Colors.orange, size: 16), // Star icon
+                                const Icon(Icons.star, color: Colors.orange, size: 16),
                                 const SizedBox(width: 4),
                                 Text(
-                                  rating,
+                                  restaurant.rating,
                                   style: const TextStyle(
                                     fontSize: 14,
                                     color: Colors.black87,
                                   ),
                                 ),
                                 Text(
-                                  reviewCount,
+                                  restaurant.reviewCount,
                                   style: const TextStyle(
                                     fontSize: 14,
                                     color: Colors.grey,
                                   ),
                                 ),
-                                const SizedBox(width: 8), // Space before clock icon
-                                const Icon(Icons.access_time, color: Colors.grey, size: 16), // Clock icon
+                                const SizedBox(width: 8),
+                                const Icon(Icons.access_time, color: Colors.grey, size: 16),
                                 const SizedBox(width: 4),
                                 Text(
-                                  deliveryTime,
+                                  restaurant.deliveryTime,
                                   style: const TextStyle(
                                     fontSize: 14,
                                     color: Colors.grey,

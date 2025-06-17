@@ -8,7 +8,7 @@ class CrazyStarsBanner extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+        margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         decoration: BoxDecoration(
           
           gradient: const LinearGradient(
@@ -21,7 +21,7 @@ class CrazyStarsBanner extends StatelessWidget {
               Color(0xFF66BB6A), 
             ],
           ),
-          borderRadius: BorderRadius.circular(30), 
+          borderRadius: BorderRadius.circular(20), 
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
