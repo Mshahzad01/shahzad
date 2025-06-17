@@ -10,23 +10,23 @@ class CrazyStarsBanner extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         decoration: BoxDecoration(
-          // REPLACED 'color' WITH 'gradient'
+          
           gradient: const LinearGradient(
-            begin: Alignment.topCenter, // Start the gradient from the top center
-            end: Alignment.bottomCenter, // End the gradient at the bottom center
+            begin: Alignment.topCenter, 
+            end: Alignment.bottomCenter, 
             colors: [
-              // Slightly darker green for the top
-            const Color.fromARGB(255, 90, 170, 14),// Your current primary green
-              // A slightly lighter shade of green for the bottom
-              Color(0xFF66BB6A), // A slightly lighter green (you can adjust this)
+              
+            const Color.fromARGB(255, 90, 170, 14),
+              
+              Color(0xFF66BB6A), 
             ],
           ),
-          borderRadius: BorderRadius.circular(30), // Highly rounded corners
+          borderRadius: BorderRadius.circular(30), 
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Left side: Tiger image with green circular border
+            
             Container(
               width: 70,
               height: 70,
@@ -39,24 +39,24 @@ class CrazyStarsBanner extends StatelessWidget {
               ),
               child: ClipOval(
                 child: Image.asset(
-                  'assets/icon/download.png', // Replace with your tiger image path
+                  'assets/icon/download.png', 
                   fit: BoxFit.contain,
                 ),
               ),
             ),
             const SizedBox(width: 15),
 
-            // Middle section: Stars, progress bar, and description
+            
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // "0 CRAZY Stars" text with star icon
-                  Row(
+                  
+                  const Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         '0 CRAZY Stars',
                         style: TextStyle(
                           color: Colors.white,
@@ -64,14 +64,10 @@ class CrazyStarsBanner extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(width: 2),
+                      SizedBox(width: 2),
 
                       Icon(Icons.star,color: Color(0xFFFFD700),)
-                      // Image.asset(
-                      //   'assets/icons/star_icon.png', // Ensure this is the correct path for the star
-                      //   width: 20,
-                      //   height: 20,
-                      // ),
+                   
                     ],
                   ),
                   const SizedBox(height: 5),

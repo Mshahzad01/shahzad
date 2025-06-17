@@ -59,7 +59,7 @@ class RestaurantSection extends StatelessWidget {
                 ),
             ],
           ),
-          const SizedBox(height: 16), // Space between title row and restaurant list
+          const SizedBox(height: 16), // Space between title row and res
 
           // Horizontal List of Restaurant Cards
           SizedBox(
@@ -92,38 +92,38 @@ class RestaurantSection extends StatelessWidget {
                 }
 
                 return Container(
-                  width: 280, // Width of each restaurant card
-                  margin: const EdgeInsets.only(right: 16), // Space between cards
+                  width: 280,
+                  margin: const EdgeInsets.only(right: 16), 
                   decoration: BoxDecoration(
-                    color: Colors.white, // Cards have a white background
-                    borderRadius: BorderRadius.circular(15), // Rounded corners for the card
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15), 
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.1), // Subtle shadow for depth
+                        color: Colors.grey.withOpacity(0.1),
                         spreadRadius: 2,
                         blurRadius: 5,
                         offset: const Offset(0, 3),
                       ),
                     ],
                   ),
-                  child: Column( // Column for the main content (image + text details)
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Restaurant Image with rounded top corners
+                 
                       ClipRRect(
                         borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(15), // Rounded top corners for the image
+                          top: Radius.circular(15), 
                         ),
                         child: Image.network(
                           imageUrl,
-                          height: 150, // Fixed height for the image section
-                          width: double.infinity, // Image takes full width of the card
-                          fit: BoxFit.cover, // Ensures image covers the area
+                          height: 150,
+                          width: double.infinity, 
+                          fit: BoxFit.cover,
                         ),
                       ),
-                      // Padding for restaurant details
+                     
                       Padding(
-                        padding: const EdgeInsets.all(12.0), // Padding around text content
+                        padding: const EdgeInsets.all(12.0), 
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -131,15 +131,15 @@ class RestaurantSection extends StatelessWidget {
                             Text(
                               restaurantName,
                               style: const TextStyle(
-                                fontSize: 16, // Restaurant name font size
-                                fontWeight: FontWeight.bold, // Bold font for name
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold, 
                                 color: Colors.black,
                               ),
-                              maxLines: 1, // Limit to 1 line
-                              overflow: TextOverflow.ellipsis, // Add "..." if text overflows
+                              maxLines: 1, 
+                              overflow: TextOverflow.ellipsis, 
                             ),
-                            const SizedBox(height: 4), // Space between name and ratings
-                            // Rating and Delivery Time
+                            const SizedBox(height: 4), 
+                     
                             Row(
                               children: [
                                 const Icon(Icons.star, color: Colors.orange, size: 16), // Star icon
