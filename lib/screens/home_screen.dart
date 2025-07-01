@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:shahzad/constant/appconstant.dart';
 import 'package:shahzad/widgets/carxystarbannerwidget.dart';
 import 'package:shahzad/widgets/resturentsection.dart';
 import '../widgets/image_slider.dart';
@@ -9,20 +8,15 @@ import '../widgets/product_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
- 
-
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 90, 170, 14),
-
-      // Custom AppBar using PreferredSize
+      backgroundColor: Appconstant.Appmaincolor,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(140),
+        preferredSize: const Size.fromHeight(130),
         child: Container(
           padding: const EdgeInsets.only(top: 40, left: 16, right: 16, bottom: 16),
-          color: const Color.fromARGB(255, 90, 170, 14),
+          color: Appconstant.Appmaincolor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 16 ),
               Row(
                 children: [
                   Expanded(
@@ -91,16 +85,14 @@ class HomeScreen extends StatelessWidget {
 
       // Body content
       body: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        ),
+         color: Colors.white,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 10),
               const ImageSlider(),
-               const SizedBox(height: 16),
+              const SizedBox(height: 16),
               const CategoryGrid(),
               const CrazyStarsBanner(),
               const SizedBox(height: 16),

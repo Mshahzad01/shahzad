@@ -17,7 +17,7 @@ class ImageSlider extends StatelessWidget {
       options: CarouselOptions(
         height: 170.0,
         autoPlay: true,
-        enlargeCenterPage: false, // 👈 side images ab choti nahi hongi
+        enlargeCenterPage: false, 
         viewportFraction: 0.9,
         autoPlayInterval: const Duration(seconds: 3),
         autoPlayAnimationDuration: const Duration(milliseconds: 800),

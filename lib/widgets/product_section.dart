@@ -92,7 +92,7 @@ class ProductSection extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 6.0, vertical: 6.0), // halki jaga left/right/top
+                                horizontal: 6.0, vertical: 6.0), 
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
                               child: Image.network(
